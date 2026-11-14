@@ -1,34 +1,9 @@
-import Motion from '../motion';
-import {Arrow} from '../ui';
+﻿import {Arrow} from '../ui';
 import {createPageMetadata} from '../page-metadata';
 import ContactForm from './project-form';
-
-const description = 'Start a project with Simplex AI. Create and download a project brief, then email it to our team.';
-
-export const metadata=createPageMetadata('Start a project',description);
-
-export default function Contact(){
-  return <Motion>
-    <section className="wrap contact-section">
-      <div className="contact-copy">
-        <div className="eyebrow"><span className="status-dot"/> LET’S MAKE SOMETHING GREAT</div>
-        <h1>It starts with<br/>your <span className="orange">idea.</span></h1>
-        <p>A new product, a better website, or a workflow that could work smarter. Tell us what you have in mind.</p>
-        <div className="contact-next">
-          <h3>A simple first step.</h3>
-          <p>Use this form to create a project brief you can save and share with Simplex AI.</p>
-          <ol>
-            <li>Tell us a little about your project.</li>
-            <li>Download your prepared brief.</li>
-            <li>Attach it to an email to our team.</li>
-          </ol>
-          <span className="small-note">This form prepares a brief locally; it does not send an enquiry.</span>
-          <a className="text-link" href="mailto:shivachary.ul@gmail.com?subject=Simplex%20AI%20project%20enquiry">
-            Email shivachary.ul@gmail.com <Arrow/>
-          </a>
-        </div>
-      </div>
-      <ContactForm/>
-    </section>
-  </Motion>;
-}
+export const metadata=createPageMetadata('Start a project','Create a project brief with Simplex AI. Tell us what you are imagining, download your brief, and email it to our team.');
+export default function Contact(){return <>
+  <section className="wrap page-intro contact-intro"><div className="eyebrow"><span className="status-dot"/> EVERY GOOD THING STARTS SOMEWHERE</div><h1><span className="motion-line"><span>Let’s make</span></span><span className="motion-line"><span className="accent-text">your next move.</span></span></h1><p>An ambitious idea. An interesting problem. A ‘what if’. We’d love to hear it.</p></section>
+  <section className="wrap contact-workspace"><aside className="brief-guide"><span className="eyebrow">A CONVERSATION, NOT A COMMITMENT</span><h2>Start with<br/>what you know.</h2><p>You don’t need a perfect brief. Just a little context about your business and where you want to go.</p><div className="brief-steps">{[['01','Tell us the idea','A few details to help us understand the possibility.'],['02','Keep a copy','Download your project brief as a text file.'],['03','Say hello','Attach your brief to an email to start the conversation.']].map(([n,t,d])=><div key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div></div>)}</div><div className="direct-contact"><span className="eyebrow">PREFER AN EMAIL?</span><a href="mailto:shivachary.ul@gmail.com?subject=Simplex%20AI%20project%20enquiry">shivachary.ul@gmail.com <Arrow/></a><p>Your form stays in your browser. Nothing is sent automatically.</p></div></aside><ContactForm/></section>
+  <section className="wrap contact-signoff"><span>NO JARGON. NO PRESSURE.</span><p>Just the beginning of something good.</p><span aria-hidden="true">✳</span></section>
+</>}
