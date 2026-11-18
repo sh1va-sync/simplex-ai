@@ -1,30 +1,29 @@
-﻿# Simplex AI — Digital matter
+# Simplex AI — outcome-led service website
 
-This redesign supersedes the original paper-and-orange visual direction recorded in motion-review.md.
+## Positioning
+
+Simplex AI sells measurable service outcomes: faster customer resolution, more team capacity, better decisions, and smoother digital journeys. The site explains how a workflow is defined, deployed, measured, and improved. Illustrative scenarios remain explicitly labeled; they are not presented as client results.
 
 ## Visual system
-- Graphite #111310 canvas, raised #191c17 surfaces, chalk #f1f2e9 text, and electric lime #c5f465 actions.
-- The About manifesto deliberately uses a light chalk surface with dark text.
-- Oversized, tightly tracked editorial headings; compact monospaced labels; generous section spacing.
-- Shared foundations in app/globals.css; route-specific architecture in app/structure.css.
+
+- A quiet light canvas, near-black editorial type, and one blue action color.
+- Spacious layouts on an 8px rhythm, large compact headlines, and restrained surface elevation.
+- A dark operational flow diagram provides the primary visual anchor. It shows signal, AI with human judgment, and the measured outcome.
+- A dark service-model section and a blue closing invitation create deliberate changes in pace.
+- Structural styles are in `app/base.css`; color, type, surfaces, and responsive refinements are in `app/premium.css`. The old studio CSS and unused showcase components were removed.
+
+## Motion
+
+GSAP handles page entrances, section reveals, and reading progress. Intro timing was shortened, text rotation removed, and animation logic for removed studio visuals deleted. Route transitions remain brief and reduced-motion preferences retain a static readable presentation. The persistent motion control remains available when system reduced motion is not enabled.
 
 ## Page architecture
-- Home: full-width headline, central interactive sculpture with flanking copy, capability index, concept previews, interactive discipline map, process, answers, closing invitation.
-- Services: editorial introduction, sticky capability directory, six detailed chapters, engagement section.
-- Work: oversized introduction, alternating project showcases, explanatory project stories. Concepts remain explicitly identified as illustrative.
-- About: studio introduction with interactive sculpture, contrasting manifesto, principles, partnership statement.
-- Contact: full-width introduction, sticky brief guide, project brief form, direct email option, signoff. Downloads remain local; no automatic submission was added.
-- Shared footer: studio statement, site directory, contact invitation, oversized linked wordmark.
 
-## Interaction ownership
-- app/transition-link.tsx: Next Link wrapper retains prefetching and native modified-click/external-link behavior; persistent GSAP curtain handles route exit and reveal. Same-page anchors use normal navigation. A timeout releases the curtain if navigation fails.
-- app/motion.tsx: page entrances, visible-section reveals, pointer-reactive geometry and preview depth, reading progress, pause control. Only visible route content is selected, respecting Next's retained route trees.
-- app/ui.tsx: server-rendered 3D CSS torus, cube and sphere; remains visible without JS. Ambient loops stop offscreen and in hidden tabs. Transforms use separate nested owners for pointer and ambient motion.
-- app/playground.tsx: accessible discipline tabs with arrow/Home/End keyboard support and a linked visual map.
-- Navigation supports Escape to close the mobile menu and restore focus.
-
-## Motion accessibility
-OS reduced-motion and the persistent session-local pause control remove displacement, ambient loops and pointer response. Short fades and color feedback remain. Reduced route changes use a short fade. No scroll hijacking or mandatory interaction is needed to read content.
+- Home: outcome promise, operational visual, four outcomes, service model, process, answers, CTA.
+- Outcomes: measurable priorities and the service elements behind each.
+- Scenarios: two clearly illustrative workflows.
+- About: operating philosophy, principles, and partnership model.
+- Contact: outcome-first brief with a local download and direct email path. The form does not submit data to a server.
 
 ## Verification
-Production build, ESLint, browser checks across all five routes at 320/390/768/1440 widths, mouse response, pause persistence, live OS preferences, tabs, FAQ, mobile navigation, brief download and no-JS content. Browser QA artifacts are generated under .next/redesign-review/ and are not committed source.
+
+Production build, TypeScript, and ESLint passed after the visual system change. The computer preview bridge did not provide a reliable page screenshot, so visual browser QA remains outstanding.

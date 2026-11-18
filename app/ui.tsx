@@ -1,20 +1,65 @@
 import Link from './transition-link';
-export function Arrow(){return <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>}
-export function Mark(){return <svg aria-hidden="true" width="31" height="34" viewBox="0 0 31 34" fill="none"><path d="M17 2 3 15h12L8 32l20-20H16l8-10Z" fill="currentColor"/></svg>}
-export function Icon({type}:{type:number}){const paths=['M3 5h18v14H3z M3 9h18 M7 7h.1 M10 7h.1','m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18','M7 2h10v20H7z M10 18h4','M12 3v3m0 12v3M3 12h3m12 0h3M6 6l2 2m8 8 2 2M6 18l2-2M16 8l2-2M9 9h6v6H9z','M4 4h16v12H9l-5 4z M8 8h8M8 12h5','M5 4v16m0-12h9a4 4 0 0 1 0 8H9m2-3-3 3 3 3'];return <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[type]}/></svg>}
-export const services=[{name:'Website development',desc:'Beautiful, fast websites that tell your story and turn visitors into customers.',tags:'BUSINESS WEBSITES · E-COMMERCE',detail:'A clear digital home for your brand. We bring together responsive layouts, accessible navigation, search-friendly structure, and fast loading experiences.',items:['Brand and business websites','E-commerce storefronts','Content management and SEO foundations']},{name:'Web applications',desc:'Powerful, intuitive platforms built around the way your business works.',tags:'SAAS · DASHBOARDS · PLATFORMS',detail:'Turn a complicated workflow into a product people enjoy using. From a first MVP to a growing platform, we build around your users and operations.',items:['SaaS products and MVPs','Internal tools and dashboards','API integrations and business workflows']},{name:'Mobile applications',desc:'Seamless mobile experiences that put your business in your customers’ hands.',tags:'IOS · ANDROID · CROSS-PLATFORM',detail:'Useful, focused mobile experiences with thoughtful onboarding, responsive interactions, and a foundation that supports future releases.',items:['iOS and Android applications','Cross-platform development','App launch and iteration support']},{name:'AI agents & automation',desc:'Intelligent systems that handle the busywork, so you can focus on what’s next.',tags:'AGENTIC AI · SMART WORKFLOWS',detail:'Put AI to work on a specific business problem. We design bounded workflows with the right integrations, evaluation, and human oversight.',items:['Agentic workflows and tool integrations','Knowledge search and document processing','Human review and evaluation workflows']},{name:'Customer support AI',desc:'Helpful, context-aware assistants that make every customer feel heard.',tags:'SUPPORT AGENTS · KNOWLEDGE BASES',detail:'Give customers a simpler route to answers. Assistants use your approved knowledge, with clear boundaries and escalation to a person when needed.',items:['Customer-facing chat assistants','Knowledge base integration','Human handoff and conversation review']},{name:'Custom digital solutions',desc:'Something a little different? Let’s find the right way to build it.',tags:'INTEGRATIONS · PRODUCT ENGINEERING',detail:'Connect existing systems, modernize a product, or explore a new idea. We start with the problem and choose an approach that fits.',items:['Third-party integrations','Existing product improvements','Technical discovery and prototyping']}];
-export function ServiceGrid({compact=false}:{compact?:boolean}){return <div className="service-grid">{services.slice(0,compact?4:6).map((s,i)=><Link href={`/services#service-${i}`} className="service-card" key={s.name}><div className="service-card-top"><span className="service-number">0{i+1}</span><div className="service-icon"><Icon type={i}/></div></div><h3>{s.name}</h3><p>{s.desc}</p><div className="card-bottom"><span>{s.tags}</span><Arrow/></div></Link>)}</div>}
-export function Orb(){return <div className="spatial-stage" aria-hidden="true">
-  <div className="scene-grid"/><div className="scene-halo"/>
-  <div className="scene-reticle reticle-one"/><div className="scene-reticle reticle-two"/>
-  <div className="spatial-rig">
-    <div className="torus-position"><div className="torus-spin">{Array.from({length:64},(_,i)=><div className="torus-slice" style={{transform:`rotateZ(${i*5.625}deg) translateX(112px) rotateY(90deg)`}} key={i}/>)}</div></div>
-    <div className="satellite-cube">{['front','back','right','left','top','bottom'].map(face=><div key={face} className={`cube-face cube-${face}`}/>)}</div>
-    <div className="chrome-sphere"/>
-    <div className="orbital-ring"/>
-  </div>
-  <span className="scene-index">OBJECT 001 / POSSIBILITIES</span>
-  <span className="scene-instruction"><span/> MOVE TO EXPLORE</span>
-</div>}
-export function ProjectGrid(){return <div className="project-grid"><Link className="project" href="/work#workspace"><div className="project-art dashboard-art"><div className="demo-window"><div className="demo-sidebar"><b>n /</b><span>Overview</span><span>Projects</span><span>Analytics</span><span>Settings</span></div><div className="demo-content"><div className="demo-top">Workspace <span>+ New project</span></div><h4>A little clarity. A lot of progress.</h4><div className="demo-stats"><div>Active projects<b>12</b></div><div>Tasks completed<b>84</b></div><div>Team members<b>08</b></div></div><div className="chart"><span/><span/><span/><span/><span/><span/><span/><span/><span/><span/><span/></div><div className="demo-bottom">Project activity <span>All systems in sync ↗</span></div></div></div></div><div className="project-caption"><div><span>WEB APPLICATION / CONCEPT</span><h3>A calmer way to work.</h3></div><Arrow/></div></Link><Link className="project" href="/work#assistant"><div className="project-art assistant-art"><div className="assistant-decoration" aria-hidden="true">✳</div><div className="chat-window"><div className="chat-head"><span className="chat-logo" aria-hidden="true">✳</span><div>Meet your new teammate.<small>AI SUPPORT ASSISTANT</small></div><span className="status-dot"/></div><div className="chat-message">Hi there! How can I make your day a little easier?</div><div className="chat-message user-message">Can you help me find the right plan?</div><div className="chat-message">Of course. Tell me a little about your team and what you’re looking for.</div><div className="chat-input">Ask a question… <span>↑</span></div></div></div><div className="project-caption"><div><span>CONVERSATIONAL AI / CONCEPT</span><h3>Better conversations. By design.</h3></div><Arrow/></div></Link></div>}
-export function CallToAction(){return <section className="cta wrap"><div className="eyebrow"><span className="status-dot"/> YOUR NEXT CHAPTER</div><div><h2>Good things start<br/>with a <span>hello.</span></h2><Link className="cta-circle" href="/contact" aria-label="Start a project"><Arrow/></Link></div><div className="cta-bottom"><p>Big idea or a small beginning. We’re all ears.</p><Link className="text-link" href="/contact">Let’s make something matter <Arrow/></Link></div></section>}
+
+export function Arrow(){
+  return <svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>;
+}
+
+export function Mark(){
+  return <svg aria-hidden="true" width="31" height="34" viewBox="0 0 31 34" fill="none"><path d="M17 2 3 15h12L8 32l20-20H16l8-10Z" fill="currentColor"/></svg>;
+}
+
+export function Icon({type}:{type:number}){
+  const paths=[
+    'M3 5h18v14H3z M3 9h18 M7 7h.1 M10 7h.1',
+    'm8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18',
+    'M7 2h10v20H7z M10 18h4',
+    'M12 3v3m0 12v3M3 12h3m12 0h3M6 6l2 2m8 8 2 2M6 18l2-2M16 8l2-2M9 9h6v6H9z',
+  ];
+  return <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={paths[type]}/></svg>;
+}
+
+export const outcomes=[
+  {name:'Resolve customer needs faster',desc:'Give customers useful answers and your team a clear path for the cases that need a person.',detail:'Connect approved knowledge and customer context to a support workflow that can answer, route, and escalate. Measure resolution time, answer quality, and handoff rate.',items:['AI-assisted answers grounded in approved sources','Intent routing and human escalation','Quality review and continuous improvement'],measure:'Time to resolution'},
+  {name:'Return time to your team',desc:'Take repetitive requests and handoffs out of the day without losing control of the work.',detail:'Identify repeatable steps across inboxes, forms, documents, and business tools. Automate the routine path and keep people in charge of exceptions.',items:['Workflow mapping and baseline','Bounded agents and system integrations','Exception handling and approval points'],measure:'Hours returned'},
+  {name:'Turn knowledge into decisions',desc:'Make hard-to-find information available where decisions are made.',detail:'Bring scattered documents and operational data into a reliable retrieval and decision support flow. Show the source, surface uncertainty, and learn from usage.',items:['Knowledge ingestion and permissions','Search and decision support','Evaluation, feedback, and governance'],measure:'Decision cycle time'},
+  {name:'Make digital journeys convert',desc:'Remove friction from customer journeys with timely, relevant assistance.',detail:'Help people choose, onboard, and complete tasks with a digital experience that can adapt to their context. Track completion and conversion rather than output volume.',items:['Journey diagnosis and redesign','Context-aware assistance','Conversion and experience measurement'],measure:'Completion rate'},
+];
+
+export function ServiceSystem(){
+  return <div className="service-system" role="img" aria-label="Service flow from business signal through AI assistance to a measured outcome">
+    <div className="system-top"><span><span className="status-dot"/> SERVICE ACTIVE</span><span>01 / WORKFLOW</span></div>
+    <div className="system-heading"><span>INPUT</span><span>INTELLIGENCE</span><span>RESULT</span></div>
+    <div className="system-track">
+      <div><small>01 / SIGNAL</small><strong>Customer request</strong><span>Context captured</span></div>
+      <b aria-hidden="true">→</b>
+      <div><small>02 / RESPONSE</small><strong>AI + human judgment</strong><span>Knowledge checked</span></div>
+      <b aria-hidden="true">→</b>
+      <div><small>03 / OUTCOME</small><strong>Faster resolution</strong><span>Quality reviewed</span></div>
+    </div>
+    <div className="system-bottom"><span>MEASURE WHAT CHANGES</span><span>REVIEW · IMPROVE · REPEAT</span></div>
+  </div>;
+}
+
+export function OrbScene({compact=false}:{compact?:boolean}){
+  return <div className={`orb-scene${compact?' orb-scene-compact':''}`} role="img" aria-label="A dimensional blue core surrounded by orbital rings, representing connected work">
+    <div className="orb-glow"/>
+    <div className="orb-object">
+      <div className="orb-ring orb-ring-one"/>
+      <div className="orb-ring orb-ring-two"/>
+      <div className="orb-ring orb-ring-three"/>
+      <div className="orb-core"><span className="orb-core-mark">✳</span></div>
+      <div className="orb-satellite orb-satellite-one"/>
+      <div className="orb-satellite orb-satellite-two"/>
+    </div>
+    <span className="orb-label orb-label-top">SIGNAL → SYSTEM</span>
+    <span className="orb-label orb-label-bottom">SYSTEM → OUTCOME</span>
+  </div>;
+}
+
+export function OutcomeCTA(){
+  return <section className="cta wrap">
+    <div className="eyebrow"><span className="status-dot"/> START WITH ONE OUTCOME</div>
+    <div><h2>Let’s make work<br/><span>work better.</span></h2><Link className="cta-circle" href="/contact" aria-label="Discuss an outcome"><Arrow/></Link></div>
+    <div className="cta-bottom"><p>Tell us what is slowing your team or customers down.</p><Link className="text-link" href="/contact">Start the conversation <Arrow/></Link></div>
+  </section>;
+}

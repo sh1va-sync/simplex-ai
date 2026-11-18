@@ -5,7 +5,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, type Compone
 import gsap from 'gsap';
 
 const NavigationContext = createContext<((href: string) => void) | null>(null);
-const titles: Record<string, string> = { '/': 'The studio', '/services': 'Our expertise', '/work': 'Selected possibilities', '/about': 'Our perspective', '/contact': 'Your next chapter' };
+const titles: Record<string, string> = { '/': 'Make work move', '/services': 'Outcomes', '/work': 'Service scenarios', '/about': 'How we work', '/contact': 'Discuss an outcome' };
 
 export function RouteTransitions({children}:{children:ReactNode}) {
   const router=useRouter();
@@ -41,7 +41,7 @@ export function RouteTransitions({children}:{children:ReactNode}) {
     gsap.to(curtain.current,{...(soft?{opacity:0}:{scaleY:0}),duration:soft?.15:.38,ease:'power3.inOut',onComplete:clear});
   },[pathname,clear]);
   useEffect(()=>()=>{if(timeout.current)clearTimeout(timeout.current);gsap.killTweensOf(curtain.current);},[]);
-  return <NavigationContext.Provider value={navigate}>{children}<div ref={curtain} className="route-curtain" aria-hidden="true"><div className="curtain-brand">s<span>✳</span></div><span ref={label} className="curtain-label">Simplex AI</span><span className="curtain-caption">A NEW PERSPECTIVE.</span></div></NavigationContext.Provider>;
+  return <NavigationContext.Provider value={navigate}>{children}<div ref={curtain} className="route-curtain" aria-hidden="true"><div className="curtain-brand">s<span>✳</span></div><span ref={label} className="curtain-label">Simplex AI</span><span className="curtain-caption">MAKE WORK MOVE.</span></div></NavigationContext.Provider>;
 }
 
 export default function TransitionLink(props:Omit<ComponentProps<typeof NextLink>,'onNavigate'>) {
